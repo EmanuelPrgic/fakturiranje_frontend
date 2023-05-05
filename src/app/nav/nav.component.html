@@ -1,17 +1,17 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container">
-      <a class="navbar-brand" href="#">Fakturiranje</a>
+      <a class="navbar-brand" routerLink="/">Fakturiranje</a>
         <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ | async">
           <li class="nav-item">
-            <a class="nav-link" href="#">Partneri</a>
+            <a class="nav-link" routerLink="/partneri" routerLinkActive="active">Partneri</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Računi</a>
+            <a class="nav-link" routerLink="/racuni" routerLinkActive="active">Računi</a>
           </li>
         </ul>
 
-        <div class="dropdown" dropdown *ngIf="accountService.currentUser$ | async">
-            <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome User</a>
+        <div class="dropdown" dropdown *ngIf="(accountService.currentUser$ | async) as user">
+            <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle> {{ user.username | titlecase}}</a>
             <div class="dropdown-menu mt-3" *dropdownMenu>
                 <a class="dropdown-item" (click)="logout()">Logout</a>
             </div>
@@ -20,7 +20,7 @@
         <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off" *ngIf="!(accountService.currentUser$ | async)">
           <input name="username" [(ngModel)]="model.username" class="form-control me-2" type="text" placeholder="Username">
           <input name="password" [(ngModel)]="model.password" class="form-control me-2" type="password" placeholder="Password">
-          <button class="btn btn-outline-success" type="submit">Login</button>
+          <button class="btn btn-success" type="submit">Login</button>
         </form>
     </div>
   </nav>
