@@ -1,0 +1,32 @@
+<form #partnerForm="ngForm" (ngSubmit)="addPartner()" autocomplete="off">
+    <h2 class="text-center text-primary">Add a partner</h2>
+    <hr>
+    <div class="mb-3">
+        <input type="text" class="form-control" name="naziv" [(ngModel)]="model.naziv" placeholder="Naziv">
+        <input type="text" class="form-control" name="adresa" [(ngModel)]="model.adresa" placeholder="Adresa">
+        <input type="text" class="form-control" name="mjesto" [(ngModel)]="model.mjesto" placeholder="Mjesto">
+        <input type="int" class="form-control" name="brojposte" [(ngModel)]="model.brojposte" placeholder="Broj poste">
+        <input type="int" class="form-control" name="mb" [(ngModel)]="model.mb" placeholder="Mb">
+        <input type="int" class="form-control" name="pdv" [(ngModel)]="model.pdv" placeholder="Pdv">
+        <input type="text" class="form-control" name="bankajedan" [(ngModel)]="model.bankajedan" placeholder="Banka 1">
+        <input type="text" class="form-control" name="bankadva" [(ngModel)]="model.bankadva" placeholder="Banka 2">
+        <input type="text" class="form-control" name="bankatri" [(ngModel)]="model.bankatri" placeholder="Banka 3">
+        <input type="text" class="form-control" name="swift" [(ngModel)]="model.swift" placeholder="Swift">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="tip" id="radio1" value="Domaci" [(ngModel)]="model.tip">
+            <label class="form-check-label" for="radio1">
+                Domaci
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="tip" id="radio2" value="Strani" [(ngModel)]="model.tip">
+            <label class="form-check-label" for="radio2">
+                Strani
+            </label>
+        </div>
+        <input type="text" class="form-control" name="drzava" [(ngModel)]="model.drzava" placeholder="Drzava">
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success me-2" type="submit">Add</button>
+    </div>
+</form>

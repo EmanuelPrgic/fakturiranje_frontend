@@ -18,6 +18,7 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { UslugeComponent } from './usluge/usluge.component';
+import { AddpartnerComponent } from './addpartner/addpartner.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { UslugeComponent } from './usluge/usluge.component';
     NotFoundComponent,
     ServerErrorComponent,
     UslugeComponent,
+    AddpartnerComponent,
   ],
   imports: [
     BrowserModule,

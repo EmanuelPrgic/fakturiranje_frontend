@@ -1,21 +1,50 @@
-<form #partnerForm="ngForm" (ngSubmit)="addPartner()" autocomplete="off">
-    <h2 class="text-center text-primary">Add a partner</h2>
-    <hr>
-    <div class="mb-3">
-        <input type="text" class="form-control" name="naziv" [(ngModel)]="model.naziv" placeholder="Naziv">
-        <input type="text" class="form-control" name="adresa" [(ngModel)]="model.adresa" placeholder="Adresa">
-        <input type="text" class="form-control" name="mjesto" [(ngModel)]="model.mjesto" placeholder="Mjesto">
-        <input type="int" class="form-control" name="brojposte" [(ngModel)]="model.brojposte" placeholder="Broj poste">
-        <input type="int" class="form-control" name="mb" [(ngModel)]="model.mb" placeholder="Mb">
-        <input type="int" class="form-control" name="pdv" [(ngModel)]="model.pdv" placeholder="Pdv">
-        <input type="text" class="form-control" name="bankajedan" [(ngModel)]="model.bankajedan" placeholder="Banka 1">
-        <input type="text" class="form-control" name="bankadva" [(ngModel)]="model.bankadva" placeholder="Banka 2">
-        <input type="text" class="form-control" name="bankatri" [(ngModel)]="model.bankatri" placeholder="Banka 3">
-        <input type="text" class="form-control" name="swift" [(ngModel)]="model.swift" placeholder="Swift">
-        <input type="text" class="form-control" name="tip" [(ngModel)]="model.tip" placeholder="Tip">
-        <input type="text" class="form-control" name="drzava" [(ngModel)]="model.drzava" placeholder="Drzava">
-    </div>
-    <div class="text-center">
-        <button class="btn btn-success me-2" type="submit">Add</button>
-    </div>
-</form>
+<div>
+  <button class="b btn-outline-success" routerLink="../addPartner">Novi partner</button>
+  <div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Naziv</th>
+          <th scope="col">Adresa</th>
+          <th scope="col">Mjesto</th>
+          <th scope="col">Broj Poste</th>
+          <th scope="col">Mb</th>
+          <th scope="col">Pdv</th>
+          <th scope="col">Banka 1</th>
+          <th scope="col">Banka 2</th>
+          <th scope="col">Banka 3</th>
+          <th scope="col">Swift</th>
+          <th scope="col">Tip</th>
+          <th scope="col">Drzava</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partner of partners">
+          <td>{{partner.naziv}}</td>
+          <td>{{partner.adresa}}</td>
+          <td>{{partner.mjesto}}</td>
+          <td>{{partner.brojPoste}}</td>
+          <td>{{partner.mb}}</td>
+          <td>{{partner.pdv}}</td>
+          <td>{{partner.bankaJedan}}</td>
+          <td>
+              <div *ngIf="partner.bankaDva; else elseBlock">
+                  {{partner.bankaDva}}
+              </div>
+              <ng-template #elseBlock>Nije unesena!</ng-template></td>
+          <td>
+              <div *ngIf="partner.bankaTri; else elseBlock">
+                  {{partner.bankaTri}}
+              </div>
+              <ng-template #elseBlock>
+                  Nije unesena!
+              </ng-template>
+          </td>
+          <td>{{partner.swift}}</td>
+          <td>{{partner.tip}}</td>
+          <td>{{partner.drzava}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
