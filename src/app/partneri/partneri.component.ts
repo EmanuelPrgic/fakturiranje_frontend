@@ -8,7 +8,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./partneri.component.css']
 })
 export class PartneriComponent implements OnInit{
-  @Output() cancelAddPartner = new EventEmitter();
   model: any = {};
 
   constructor(private accountService: AccountService, private toastr: ToastrService) {}
@@ -17,20 +16,15 @@ export class PartneriComponent implements OnInit{
     
   }
 
-  /* addPartner() {
-    this.accountService.addpartner(this.model).subscribe({
-      next: () => {
-        this.cancel();
+  addPartner() {
+    this.accountService.addPartner(this.model).subscribe({
+      next: response => {
+        console.log(this.model);
+        console.log(response);
       },
-      error: error => {
-        this.toastr.error(error.error),
-        console.log(error)
-      }
-    })
-  } */
+      error: error => console.log(error)
 
-  cancel() {
-    this.cancelAddPartner.emit(false);
+    })
   }
 
 }

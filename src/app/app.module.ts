@@ -31,7 +31,7 @@ import { UslugeComponent } from './usluge/usluge.component';
     TestErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    UslugeComponent
+    UslugeComponent,
   ],
   imports: [
     BrowserModule,

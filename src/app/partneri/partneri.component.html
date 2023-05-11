@@ -1,4 +1,4 @@
-<form #partnerForm="ngForm"  autocomplete="off">
+<form #partnerForm="ngForm" (ngSubmit)="addPartner()" autocomplete="off">
     <h2 class="text-center text-primary">Add a partner</h2>
     <hr>
     <div class="mb-3">
@@ -17,6 +17,5 @@
     </div>
     <div class="text-center">
         <button class="btn btn-success me-2" type="submit">Add</button>
-        <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
     </div>
 </form>
