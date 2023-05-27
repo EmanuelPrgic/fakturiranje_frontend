@@ -1,4 +1,5 @@
 export interface Partner {
+    id: number;
     naziv: string;
     adresa: string;
     mjesto: string;

@@ -19,6 +19,9 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { UslugeComponent } from './usluge/usluge.component';
 import { AddpartnerComponent } from './addpartner/addpartner.component';
+import { PartnerEditComponent } from './partneri/partner-edit/partner-edit.component';
+import { AddzaglavljeComponent } from './fakture/zaglavlje/addzaglavlje.component';
+import { AddstavkeComponent } from './fakture/stavke/addstavke.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { AddpartnerComponent } from './addpartner/addpartner.component';
     ServerErrorComponent,
     UslugeComponent,
     AddpartnerComponent,
+    PartnerEditComponent,
+    AddzaglavljeComponent,
+    AddstavkeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AccountService } from '../_services/account.service';
-import { ToastrService } from 'ngx-toastr';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -9,27 +7,16 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./partneri.component.css']
 })
 export class PartneriComponent implements OnInit{
-  model: any = {};
   partners: any;
 
-  constructor(private accountService: AccountService, private toastr: ToastrService, private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.getPartners();
   }
 
-  addPartner() {
-    this.accountService.addPartner(this.model).subscribe({
-      next: response => {
-        console.log(this.model);
-      },
-      error: error => console.log(error)
-
-    })
-  }
-
   getPartners() {
-    this.http.get('https://localhost:7003/api/partner').subscribe({
+    this.http.get('https://localhost:7003/api/Partneri').subscribe({
       next: response => this.partners = response,
       error: error => console.log(error)
     })

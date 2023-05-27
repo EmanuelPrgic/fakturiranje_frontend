@@ -1,0 +1,26 @@
+<button class="btn btn-success" routerLink="../../">Return</button>
+<form #zaglavljeForm="ngForm" (ngSubmit)="addZaglavlje()" autocomplete="off">
+    <h2 class="text-center text-primary">Add fakturu</h2>
+    <hr>
+    <div class="mb-3">
+        <input type="text" class="form-control" name="brojracuna" [(ngModel)]="model.brojracuna" placeholder="Broj Racuna">
+        <input type="text" class="form-control" name="datumisporuke" [(ngModel)]="model.datumisporuke" placeholder="Datum Isporuke">
+        <input type="text" class="form-control" name="datumdokumenta" [(ngModel)]="model.datumdokumenta" placeholder="Datum Dokumenta">
+        <input type="text" class="form-control" name="datumdospijeca" [(ngModel)]="model.datumdospijeca" placeholder="Datum Dospijeca">
+        <textarea class="form-control" name="opis" [(ngModel)]="model.opis" cols="30" rows="10" placeholder="Opis"></textarea>
+        <input type="text" class="form-control" name="mjestoizdavanja" [(ngModel)]="model.mjestoizdavanja" placeholder="Mjesto Izdavanja">
+        <input type="text" class="form-control" name="datumizdavanja" [(ngModel)]="model.datumizdavanja" placeholder="Datum Izdavanja">
+        <input type="text" class="form-control" name="fiskalnibroj" [(ngModel)]="model.fiskalnibroj" placeholder="Fiskalni Broj">
+        <textarea class="form-control" name="napomena" [(ngModel)]="model.napomena" cols="30" rows="10" placeholder="Napomena"></textarea>
+        <div class="mb-3">
+            <label for="partneri">Partners</label>
+            <select class="form-control" [(ngModel)]="model.partnerid" [ngModelOptions]="{standalone : true}">
+                <option [ngValue]="null" disabled>Choose partner</option>
+                <option *ngFor="let partner of partners" [ngValue]="partner.id">{{partner.naziv}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success me-2" type="submit">Add</button>
+    </div>
+</form>

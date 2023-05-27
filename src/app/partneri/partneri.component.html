@@ -4,6 +4,7 @@
     <table class="table">
       <thead class="thead-dark">
         <tr>
+          <th scope="col">Edit</th>
           <th scope="col">Naziv</th>
           <th scope="col">Adresa</th>
           <th scope="col">Mjesto</th>
@@ -20,21 +21,22 @@
       </thead>
       <tbody>
         <tr *ngFor="let partner of partners">
+          <td><button routerLink="../partner/edit">Edit</button></td>
           <td>{{partner.naziv}}</td>
           <td>{{partner.adresa}}</td>
           <td>{{partner.mjesto}}</td>
-          <td>{{partner.brojPoste}}</td>
+          <td>{{partner.brojposte}}</td>
           <td>{{partner.mb}}</td>
           <td>{{partner.pdv}}</td>
-          <td>{{partner.bankaJedan}}</td>
+          <td>{{partner.bankajedan}}</td>
           <td>
-              <div *ngIf="partner.bankaDva; else elseBlock">
-                  {{partner.bankaDva}}
+              <div *ngIf="partner.bankadva; else elseBlock">
+                  {{partner.bankadva}}
               </div>
               <ng-template #elseBlock>Nije unesena!</ng-template></td>
           <td>
-              <div *ngIf="partner.bankaTri; else elseBlock">
-                  {{partner.bankaTri}}
+              <div *ngIf="partner.bankatri; else elseBlock">
+                  {{partner.bankatri}}  
               </div>
               <ng-template #elseBlock>
                   Nije unesena!

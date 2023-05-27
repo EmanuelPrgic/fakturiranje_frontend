@@ -1,1 +1,51 @@
-<p>fakture works!</p>
+<div>
+    <button class="b btn-outline-success" routerLink="../fakture/zaglavlje/add">Nova faktura</button>
+    <button class="b btn-outline-success stavkeButton" routerLink="../fakture/stavke/add">Nova stavka</button>
+    <div>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Options</th>
+            <th scope="col">Broj Racuna</th>
+            <th scope="col">Datum Isporuke</th>
+            <th scope="col">Datum Dokumenta</th>
+            <th scope="col">Datum Dospijeca</th>
+            <th scope="col">Opis</th>
+            <th scope="col">Mjesto Izdavanja</th>
+            <th scope="col">Datum Izdavanja</th>
+            <th scope="col">Fiskalni Broj</th>
+            <th scope="col">Partner Id</th>
+            <th scope="col">Tecaj</th>
+            <th scope="col">Napomena</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let zaglavlje of zaglavlja">
+            <td><button routerLink="../fakture/zaglavlje/edit">Edit</button>
+            <button>Delete</button></td>
+            <td>{{zaglavlje.brojracuna}}</td>
+            <td>{{zaglavlje.datumisporuke}}</td>
+            <td>{{zaglavlje.datumdokumenta}}</td>
+            <td>{{zaglavlje.datumdospijeca}}</td>
+            <td>
+                <div *ngIf="zaglavlje.opis; else elseBlock">
+                    {{zaglavlje.opis}}
+                </div>
+                <ng-template #elseBlock>-</ng-template></td>
+            <td>{{zaglavlje.mjestoizdavanja}}</td>
+            <td>{{zaglavlje.datumizdavanja}}</td>
+            <td>
+                <div *ngIf="zaglavlje.fiskalnibroj; else elseBlock">
+                    {{zaglavlje.fiskalnibroj}}
+                </div>
+                <ng-template #elseBlock>-</ng-template></td>
+            <td>{{zaglavlje.partnerid}}</td>
+            <td>{{zaglavlje.tecaj}}</td>
+            <td>{{zaglavlje.napomena}}</td>
+            <td>{{zaglavlje.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
