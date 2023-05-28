@@ -5,13 +5,14 @@
     <div class="mb-3">
         <textarea class="form-control" name="opis" [(ngModel)]="model.opis" cols="30" rows="10" placeholder="Opis"></textarea>
         <input type="text" class="form-control" name="kolicina" [(ngModel)]="model.kolicina" placeholder="Kolicina">
-        <input type="text" class="form-control" name="cijenadeviza" [(ngModel)]="model.cijenadeviza" placeholder="Cijena deviza">
+        <input type="text" class="form-control" name="cijenadeviza" [(ngModel)]="model.cijenadeviza" placeholder="Cijena Deviza">
+        <input type="text" class="form-control" name="cijenakm" [(ngModel)]="model.cijenakm" placeholder="Cijena KM">
         <input type="text" class="form-control" name="rabat" [(ngModel)]="model.rabat" placeholder="Rabat">
         <input type="text" class="form-control" name="pdv" [(ngModel)]="model.pdv" placeholder="Pdv">
         <div class="mb-3">
             <label for="zaglavlja">Zaglavlja</label>
-            <select class="form-control" [(ngModel)]="model.zaglavljeracunaid" [ngModelOptions]="{standalone : true}">
-                <option [ngValue]="null" disabled>Choose zaglavlje</option>
+            <select class="form-control" [(ngModel)]="model.brojracuna" [ngModelOptions]="{standalone : true}">
+                <option [ngValue]="null" disabled>Choose fakturu</option>
                 <option *ngFor="let zaglavlje of zaglavlja" [ngValue]="zaglavlje.brojracuna">{{zaglavlje.brojracuna}}</option>
             </select>
         </div>

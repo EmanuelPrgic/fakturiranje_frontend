@@ -12,7 +12,7 @@ import { UslugeComponent } from './usluge/usluge.component';
 import { AddpartnerComponent } from './addpartner/addpartner.component';
 import { PartnerEditComponent } from './partneri/partner-edit/partner-edit.component';
 import { AddzaglavljeComponent } from './fakture/zaglavlje/addzaglavlje.component';
-import { AddstavkeComponent } from './fakture/stavke/addstavke.component';
+import { AdduslugeComponent } from './usluge/addusluge/addusluge.component';
 
 const routes: Routes = [
   {
@@ -37,10 +37,10 @@ const routes: Routes = [
         path: 'fakture', component: FaktureComponent
       },
       {
-        path: 'fakture/zaglavlje/add', component: AddzaglavljeComponent
+        path: 'fakture/add', component: AddzaglavljeComponent
       },
       {
-        path: 'fakture/stavke/add', component: AddstavkeComponent
+        path: 'usluge/add', component: AdduslugeComponent
       },
       {
         path: 'usluge', component: UslugeComponent

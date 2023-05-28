@@ -21,7 +21,7 @@ import { UslugeComponent } from './usluge/usluge.component';
 import { AddpartnerComponent } from './addpartner/addpartner.component';
 import { PartnerEditComponent } from './partneri/partner-edit/partner-edit.component';
 import { AddzaglavljeComponent } from './fakture/zaglavlje/addzaglavlje.component';
-import { AddstavkeComponent } from './fakture/stavke/addstavke.component';
+import { AdduslugeComponent } from './usluge/addusluge/addusluge.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { AddstavkeComponent } from './fakture/stavke/addstavke.component';
     AddpartnerComponent,
     PartnerEditComponent,
     AddzaglavljeComponent,
-    AddstavkeComponent,
+    AdduslugeComponent,
   ],
   imports: [
     BrowserModule,

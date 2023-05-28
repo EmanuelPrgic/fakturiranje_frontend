@@ -1,1 +1,42 @@
-<p>usluge works!</p>
+<div>
+    <button class="b btn-outline-success" routerLink="../usluge/add">Nova stavka</button>
+    <div>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Options</th>
+            <th scope="col">Opis</th>
+            <th scope="col">Kolicina</th>
+            <th scope="col">Cijena Deviza</th>
+            <th scope="col">Cijena KM</th>
+            <th scope="col">Faktura Vrijednost</th>
+            <th scope="col">Rabat %</th>
+            <th scope="col">Iznos Rabata</th>
+            <th scope="col">PDV %</th>
+            <th scope="col">Iznos PDV-a</th>
+            <th scope="col">Osnovica</th>
+            <th scope="col">Ukupan iznos</th>
+            <th scope="col">Broj fakture</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stavka of stavke">
+            <td><button routerLink="../fakture/stavke/edit">Edit</button>
+            <button>Delete</button></td>
+            <td>{{stavka.opis}}</td>
+            <td>{{stavka.kolicina}}</td>
+            <td>{{stavka.cijenadeviza}}</td>
+            <td>{{stavka.cijenakm}}</td>
+            <td>{{stavka.fakturnavrijednost}}</td>
+            <td>{{stavka.rabat}}</td>
+            <td>{{stavka.iznosrabata}}</td>
+            <td>{{stavka.pdv}}</td>
+            <td>{{stavka.iznospdv}}</td>
+            <td>{{stavka.osnovica}}</td>
+            <td>{{stavka.ukupaniznos}}</td>
+            <td>{{stavka.brojracuna}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

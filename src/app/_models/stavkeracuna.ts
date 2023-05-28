@@ -2,6 +2,7 @@ export interface StavkeRacuna {
     opis: string;
     kolicina: number;
     cijenadeviza: number;
+    cijenakm: number;
     fakturnavrijednost: number;
     rabat: number;
     iznosrabata: number;

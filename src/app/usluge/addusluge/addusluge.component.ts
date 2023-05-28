@@ -4,11 +4,11 @@ import { ToastrService } from 'ngx-toastr';
 import { AccountService } from 'src/app/_services/account.service';
 
 @Component({
-  selector: 'app-addstavke',
-  templateUrl: './addstavke.component.html',
-  styleUrls: ['./addstavke.component.css']
+  selector: 'app-addusluge',
+  templateUrl: './addusluge.component.html',
+  styleUrls: ['./addusluge.component.css']
 })
-export class AddstavkeComponent implements OnInit {
+export class AdduslugeComponent implements OnInit {
 
   model: any = {};
   partners: any;
