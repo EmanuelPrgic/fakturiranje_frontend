@@ -11,8 +11,10 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { UslugeComponent } from './usluge/usluge.component';
 import { AddpartnerComponent } from './addpartner/addpartner.component';
 import { PartnerEditComponent } from './partneri/partner-edit/partner-edit.component';
-import { AddzaglavljeComponent } from './fakture/zaglavlje/addzaglavlje.component';
 import { AdduslugeComponent } from './usluge/addusluge/addusluge.component';
+import { UslugaEditComponent } from './usluge/usluga-edit/usluga-edit.component';
+import { FakturaEditComponent } from './fakture/faktura-edit/faktura-edit.component';
+import { FakturaAddComponent } from './fakture/faktura-add/faktura-add.component';
 
 const routes: Routes = [
   {
@@ -37,7 +39,13 @@ const routes: Routes = [
         path: 'fakture', component: FaktureComponent
       },
       {
-        path: 'fakture/add', component: AddzaglavljeComponent
+        path: 'fakture/edit', component: FakturaEditComponent
+      },
+      {
+        path: 'fakture/add', component: FakturaAddComponent
+      },
+      {
+        path: 'usluge/edit', component: UslugaEditComponent
       },
       {
         path: 'usluge/add', component: AdduslugeComponent

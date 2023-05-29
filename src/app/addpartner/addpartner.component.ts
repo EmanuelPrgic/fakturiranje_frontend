@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../_services/account.service';
 import { ToastrService } from 'ngx-toastr';
-import { HttpClient } from '@angular/common/http';
+import { PartnerService } from '../_services/partner.service';
 
 @Component({
   selector: 'app-addpartner',
@@ -11,13 +10,13 @@ import { HttpClient } from '@angular/common/http';
 export class AddpartnerComponent implements OnInit {
   model: any = {};
 
-  constructor(private accountService: AccountService, private toastr: ToastrService, private http: HttpClient) {}
+  constructor(private partnerService: PartnerService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
   }
 
   addPartner() {
-    this.accountService.addPartner(this.model).subscribe({
+    this.partnerService.addPartner(this.model).subscribe({
       next: () => {
         console.log(this.model);
         this.toastr.success("Success.")

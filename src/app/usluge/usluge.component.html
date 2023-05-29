@@ -1,5 +1,5 @@
 <div>
-    <button class="b btn-outline-success" routerLink="../usluge/add">Nova stavka</button>
+    <button class="b btn-outline-success" routerLink="../usluge/add">Nova usluga</button>
     <div>
       <table class="table">
         <thead class="thead-dark">
@@ -20,21 +20,21 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let stavka of stavke">
-            <td><button routerLink="../fakture/stavke/edit">Edit</button>
+          <tr *ngFor="let usluga of usluge">
+            <td><button routerLink="../usluge/edit">Edit</button>
             <button>Delete</button></td>
-            <td>{{stavka.opis}}</td>
-            <td>{{stavka.kolicina}}</td>
-            <td>{{stavka.cijenadeviza}}</td>
-            <td>{{stavka.cijenakm}}</td>
-            <td>{{stavka.fakturnavrijednost}}</td>
-            <td>{{stavka.rabat}}</td>
-            <td>{{stavka.iznosrabata}}</td>
-            <td>{{stavka.pdv}}</td>
-            <td>{{stavka.iznospdv}}</td>
-            <td>{{stavka.osnovica}}</td>
-            <td>{{stavka.ukupaniznos}}</td>
-            <td>{{stavka.brojracuna}}</td>
+            <td>{{usluga.opis}}</td>
+            <td>{{usluga.kolicina}}</td>
+            <td>{{usluga.cijenadeviza}}</td>
+            <td>{{usluga.cijenakm}}</td>
+            <td>{{usluga.fakturnavrijednost}}</td>
+            <td>{{usluga.rabat}}</td>
+            <td>{{usluga.iznosrabata}}</td>
+            <td>{{usluga.pdv}}</td>
+            <td>{{usluga.iznospdv}}</td>
+            <td>{{usluga.osnovica}}</td>
+            <td>{{usluga.ukupaniznos}}</td>
+            <td>{{usluga.brojracuna}}</td>
           </tr>
         </tbody>
       </table>

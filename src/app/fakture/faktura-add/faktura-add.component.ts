@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { AccountService } from 'src/app/_services/account.service';
+import { FaktureService } from 'src/app/_services/fakture.service';
 
 @Component({
-  selector: 'app-addzaglavlje',
-  templateUrl: './addzaglavlje.component.html',
-  styleUrls: ['./addzaglavlje.component.css']
+  selector: 'app-faktura-add',
+  templateUrl: './faktura-add.component.html',
+  styleUrls: ['./faktura-add.component.css']
 })
-export class AddzaglavljeComponent implements OnInit{
+export class FakturaAddComponent implements OnInit{
 
   model: any = {};
   partners: any;
 
-  constructor(private accountService: AccountService, private toastr: ToastrService, private http: HttpClient) {}
+  constructor(private faktureService: FaktureService, private toastr: ToastrService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.getPartners();
@@ -26,8 +26,8 @@ export class AddzaglavljeComponent implements OnInit{
     })
   }
 
-  addZaglavlje() {
-    this.accountService.addZaglavlje(this.model).subscribe({
+  addFakturu() {
+    this.faktureService.addFakturu(this.model).subscribe({
       next: () =>
       {
         console.log(this.model);

@@ -1,5 +1,5 @@
 <button class="btn btn-success" routerLink="../../">Return</button>
-<form #stavkaForm="ngForm" (ngSubmit)="addStavku()" autocomplete="off">
+<form #uslugaForm="ngForm" (ngSubmit)="addStavku()" autocomplete="off">
     <h2 class="text-center text-primary">Add stavku</h2>
     <hr>
     <div class="mb-3">
@@ -10,10 +10,10 @@
         <input type="text" class="form-control" name="rabat" [(ngModel)]="model.rabat" placeholder="Rabat">
         <input type="text" class="form-control" name="pdv" [(ngModel)]="model.pdv" placeholder="Pdv">
         <div class="mb-3">
-            <label for="zaglavlja">Zaglavlja</label>
+            <label for="faktura">Fakture</label>
             <select class="form-control" [(ngModel)]="model.brojracuna" [ngModelOptions]="{standalone : true}">
                 <option [ngValue]="null" disabled>Choose fakturu</option>
-                <option *ngFor="let zaglavlje of zaglavlja" [ngValue]="zaglavlje.brojracuna">{{zaglavlje.brojracuna}}</option>
+                <option *ngFor="let faktura of fakture" [ngValue]="faktura.brojracuna">{{faktura.brojracuna}}</option>
             </select>
         </div>
     </div>

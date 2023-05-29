@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from 'src/app/_services/account.service';
+import { StavkeRacuna } from '../_models/stavkeracuna';
+import { ZaglavljeRacuna } from '../_models/zaglavljeracuna';
+import { Partner } from '../_models/partner';
 
 @Component({
   selector: 'app-usluge',
@@ -11,37 +14,37 @@ import { AccountService } from 'src/app/_services/account.service';
 export class UslugeComponent implements OnInit {
 
   model: any = {};
-  partners: any;
-  zaglavlja: any;
-  stavke: any;
+  partneri: any;
+  fakture: any;
+  usluge: any;
+  fakturnavrijednost: number | undefined;
 
-  constructor(private accountService: AccountService, private toastr: ToastrService, private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.getPartners();
-    this.getZaglavlja();
-    this.getStavke();
+    this.getFakture();
+    this.getUsluge();
   }
 
   getPartners() {
-    this.http.get('https://localhost:7003/api/Partneri').subscribe({
-      next: response => this.partners = response,
+    this.http.get('https://localhost:7003/api/partneri').subscribe({
+      next: response => this.partneri = response,
       error: error => console.log(error)
     })
   }
 
-  getZaglavlja() {
-    this.http.get('https://localhost:7003/api/fakture/zaglavlje').subscribe({
-      next: response => this.zaglavlja = response,
+  getFakture() {
+    this.http.get('https://localhost:7003/api/fakture').subscribe({
+      next: response => this.fakture = response,
       error: error => console.log(error)
     })
   }
 
-  getStavke() {
-    this.http.get('https://localhost:7003/api/fakture/stavke').subscribe({
+  getUsluge() {
+    this.http.get('https://localhost:7003/api/usluge').subscribe({
       next: response => {
-        this.stavke = response;
-        this.stavke.fakturnavrijednost = this.stavke.cijenakm * this.stavke.kolicina;
+        this.usluge = response;
       },
       error: error => console.log(error)
     })

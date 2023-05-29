@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ZaglavljeRacuna } from '../_models/zaglavljeracuna';
 
 @Component({
   selector: 'app-fakture',
@@ -10,11 +11,13 @@ export class FaktureComponent implements OnInit{
 
   constructor(private http: HttpClient) {}
   partners: any;
-  zaglavlja: any;
+  fakture: any;
+  editMode = false;
+  faktura: any;
 
   ngOnInit(): void {
     this.getPartners();
-    this.getZaglavlja();
+    this.getFakture();
   }
 
   getPartners() {
@@ -24,10 +27,17 @@ export class FaktureComponent implements OnInit{
     })
   }
 
-  getZaglavlja() {
-    this.http.get('https://localhost:7003/api/fakture/zaglavlje').subscribe({
-      next: response => this.zaglavlja = response,
+  getFakture() {
+    this.http.get('https://localhost:7003/api/fakture').subscribe({
+      next: response => this.fakture = response,
       error: error => console.log(error)
+    })
+  }
+
+  editToggle(brojracuna: number) {
+    this.editMode = !this.editMode;
+    this.http.get('https://localhost:7003/api/fakture/' + brojracuna).subscribe({
+      next: response => this.faktura = response
     })
   }
 

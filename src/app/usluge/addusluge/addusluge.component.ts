@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { AccountService } from 'src/app/_services/account.service';
+import { FaktureService } from 'src/app/_services/fakture.service';
+import { UslugeService } from 'src/app/_services/usluge.service';
 
 @Component({
   selector: 'app-addusluge',
@@ -12,31 +13,31 @@ export class AdduslugeComponent implements OnInit {
 
   model: any = {};
   partners: any;
-  zaglavlja: any;
+  fakture: any;
 
-  constructor(private accountService: AccountService, private toastr: ToastrService, private http: HttpClient) {}
+  constructor(private uslugeService: UslugeService, private toastr: ToastrService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.getPartners();
-    this.getZaglavlja();
+    this.getFakture();
   }
 
   getPartners() {
-    this.http.get('https://localhost:7003/api/Partneri').subscribe({
+    this.http.get('https://localhost:7003/api/partneri').subscribe({
       next: response => this.partners = response,
       error: error => console.log(error)
     })
   }
 
-  getZaglavlja() {
-    this.http.get('https://localhost:7003/api/fakture/zaglavlje').subscribe({
-      next: response => this.zaglavlja = response,
+  getFakture() {
+    this.http.get('https://localhost:7003/api/fakture').subscribe({
+      next: response => this.fakture = response,
       error: error => console.log(error)
     })
   }
 
-  addStavku() {
-    this.accountService.addStavku(this.model).subscribe({
+  addStavku() { 
+    this.uslugeService.addUslugu(this.model).subscribe({
       next: () =>
       {
         console.log(this.model);

@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="!editMode">
     <button class="b btn-outline-success" routerLink="../fakture/add">Nova faktura</button>
     <div>
       <table class="table">
@@ -20,31 +20,35 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let zaglavlje of zaglavlja">
-            <td><button routerLink="../fakture/zaglavlje/edit">Edit</button>
-            <button>Delete</button></td>
-            <td>{{zaglavlje.brojracuna}}</td>
-            <td>{{zaglavlje.datumisporuke}}</td>
-            <td>{{zaglavlje.datumdokumenta}}</td>
-            <td>{{zaglavlje.datumdospijeca}}</td>
+          <tr *ngFor="let faktura of fakture">
+            <td><button (click)="editToggle(faktura.brojracuna)">Edit</button>
+            <button>Delete</button></td>  
+            <td>{{faktura.brojracuna}}</td>
+            <td>{{faktura.datumisporuke}}</td>
+            <td>{{faktura.datumdokumenta}}</td>
+            <td>{{faktura.datumdospijeca}}</td>
             <td>
-                <div *ngIf="zaglavlje.opis; else elseBlock">
-                    {{zaglavlje.opis}}
+                <div *ngIf="faktura.opis; else elseBlock">
+                    {{faktura.opis}}
                 </div>
                 <ng-template #elseBlock>-</ng-template></td>
-            <td>{{zaglavlje.mjestoizdavanja}}</td>
-            <td>{{zaglavlje.datumizdavanja}}</td>
+            <td>{{faktura.mjestoizdavanja}}</td>
+            <td>{{faktura.datumizdavanja}}</td>
             <td>
-                <div *ngIf="zaglavlje.fiskalnibroj; else elseBlock">
-                    {{zaglavlje.fiskalnibroj}}
+                <div *ngIf="faktura.fiskalnibroj; else elseBlock">
+                    {{faktura.fiskalnibroj}}
                 </div>
                 <ng-template #elseBlock>-</ng-template></td>
-            <td>{{zaglavlje.partnerid}}</td>
-            <td>{{zaglavlje.tecaj}}</td>
-            <td>{{zaglavlje.napomena}}</td>
-            <td>{{zaglavlje.status}}</td>
+            <td>{{faktura.partnerid}}</td>
+            <td>{{faktura.tecaj}}</td>
+            <td>{{faktura.napomena}}</td>
+            <td>{{faktura.status}}</td>
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
+
+  <div *ngIf="editMode">
+    <app-faktura-edit [faktureFromFaktureComponent]="faktura"></app-faktura-edit>
   </div>
