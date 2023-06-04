@@ -1,1 +1,92 @@
-<p>partner-edit works!</p>
+<form #editForm="ngForm" (ngSubmit)="updatePartner(partner.id)">
+    <h2 class="text-center text-primary">Edit Partner: Id-{{partner.id}}</h2>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <p><strong>Information:</strong> Any unsaved data will be lost!</p>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="naziv" class="col-sm-2 col-form-label">Naziv</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="naziv" [(ngModel)]="partner.naziv" [ngModelOptions]="{standalone : true}">
+      </div>
+    </div>
+    <div class="row mb-3">
+        <label for="adresa" class="col-sm-2 col-form-label">Adresa</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="adresa" [(ngModel)]="partner.adresa" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="mjesto" class="col-sm-2 col-form-label">Mjesto</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="mjesto" [(ngModel)]="partner.mjesto" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="brojposte" class="col-sm-2 col-form-label">Broj Poste</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="brojposte" [(ngModel)]="partner.brojposte" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="mb" class="col-sm-2 col-form-label">Mb</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="mb" [(ngModel)]="partner.mb" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="pdv" class="col-sm-2 col-form-label">Pdv</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="pdv" [(ngModel)]="partner.pdv" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="bankajedan" class="col-sm-2 col-form-label">Banka 1</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="bankajedan" [(ngModel)]="partner.bankajedan" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="bankadva" class="col-sm-2 col-form-label">Banka 2</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="bankadva" [(ngModel)]="partner.bankadva" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="bankatri" class="col-sm-2 col-form-label">Banka 3</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="bankatri" [(ngModel)]="partner.bankatri" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="swift" class="col-sm-2 col-form-label">Swift</label>
+        <div class="col-sm-10">
+            <textarea name="swift" id="swift" cols="40" [(ngModel)]="partner.swift" [ngModelOptions]="{standalone : true}"></textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="mb-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="tip" id="radio1" value="Domaci" [(ngModel)]="partner.tip">
+                <label class="form-check-label" for="radio1">
+                    Domaci
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="tip" id="radio2" value="Strani" [(ngModel)]="partner.tip">
+                <label class="form-check-label" for="radio2">
+                    Strani
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="drzava" class="col-sm-2 col-form-label">Drzava</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="drzava" [(ngModel)]="partner.drzava" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

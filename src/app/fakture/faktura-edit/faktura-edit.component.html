@@ -1,1 +1,74 @@
-<h1 *ngIf="faktureFromFaktureComponent">{{faktureFromFaktureComponent.napomena}}</h1>
+<button class="btn btn-success" routerLink="../../">Return</button>
+<form #editForm="ngForm" (ngSubmit)="updateFaktura(faktura.id)">
+    <h2 class="text-center text-primary">Edit fakturu: Id-{{faktura.id}}</h2>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <p><strong>Information:</strong> Any unsaved data will be lost!</p>
+      </div>
+    </div>
+    <div class="row mb-3">
+        <label for="brojracuna" class="col-sm-2 col-form-label">Broj Racuna</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="brojracuna" [(ngModel)]="faktura.brojracuna" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="datumisporuke" class="col-sm-2 col-form-label">Datum Isporuke</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="datumisporuke" [(ngModel)]="faktura.datumisporuke" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="datumdokumenta" class="col-sm-2 col-form-label">Datum dokumenta</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="datumdokumenta" [(ngModel)]="faktura.datumdokumenta" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="datumdospijeca" class="col-sm-2 col-form-label">Datum Dospijeca</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="datumdospijeca" [(ngModel)]="faktura.datumdospijeca" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="opis" class="col-sm-2 col-form-label">Opis</label>
+        <div class="col-sm-10">
+            <textarea name="opis" id="opis" cols="40" [(ngModel)]="faktura.opis" [ngModelOptions]="{standalone : true}"></textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="mjestoizdavanja" class="col-sm-2 col-form-label">Mjesto Izdavanja</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="mjestoizdavanja" [(ngModel)]="faktura.mjestoizdavanja" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="datumizdavanja" class="col-sm-2 col-form-label">Datum Izdavanja</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="datumizdavanja" [(ngModel)]="faktura.datumizdavanja" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="fiskalnibroj" class="col-sm-2 col-form-label">Fiskalni Broj</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="fiskalnibroj" [(ngModel)]="faktura.fiskalnibroj" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="napomena" class="col-sm-2 col-form-label">Napomena</label>
+        <div class="col-sm-10">
+            <textarea name="napomena" id="napomena" cols="40" [(ngModel)]="faktura.napomena" [ngModelOptions]="{standalone : true}"></textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="mb-3">
+            <label for="faktura">Fakture</label>
+            <select class="form-control" [(ngModel)]="faktura.partnerid" [ngModelOptions]="{standalone : true}">
+                <option [ngValue]="null" disabled>Choose partner</option>
+                <option *ngFor="let partner of partners" [ngValue]="partner.id">{{partner.naziv}}</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

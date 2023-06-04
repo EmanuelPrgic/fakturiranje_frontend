@@ -10,18 +10,19 @@ import { AccountService } from './account.service';
 export class UslugeService {
   baseUrl = 'https://localhost:7003/api/';
   private currentUslugaSource = new BehaviorSubject<StavkeRacuna | null>(null);
+  
   currentUsluga$ = this.currentUslugaSource.asObservable();
 
 
   constructor(private http: HttpClient, private accountService: AccountService) { }
 
   getUsluge() {
-    return this.http.get<StavkeRacuna[]>(this.baseUrl + 'usluge');
+    return this.http.get<StavkeRacuna[]>(this.baseUrl + "usluge");
   }
 
   getUslugu(id: number)
   {
-    return this.http.get<StavkeRacuna>(this.baseUrl + 'usluge/' + id, this.accountService.getHttpOptions());
+    return this.http.get<StavkeRacuna>(this.baseUrl + "usluge/" + id, this.accountService.getHttpOptions());
   }
 
   addUslugu(model: StavkeRacuna) {
@@ -33,5 +34,15 @@ export class UslugeService {
         }
       })
     )
+  }
+
+  updateUsluga(id: number, stavkeRacuna: StavkeRacuna)
+  {
+    return this.http.put(this.baseUrl + "usluga/edit/" + id, stavkeRacuna);
+  }
+
+  deleteUsluga(id: number)
+  {
+    return this.http.delete(this.baseUrl + "usluga/delete/" + id);
   }
 }

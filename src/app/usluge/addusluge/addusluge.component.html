@@ -1,14 +1,44 @@
-<button class="btn btn-success" routerLink="../../">Return</button>
-<form #uslugaForm="ngForm" (ngSubmit)="addStavku()" autocomplete="off">
-    <h2 class="text-center text-primary">Add stavku</h2>
+<button class="btn btn-success" routerLink="../">Return</button>
+<form #modelForm="ngForm" (ngSubmit)="addStavku()" autocomplete="off">
+    <h2 class="text-center text-primary">Add uslugu</h2>
     <hr>
-    <div class="mb-3">
-        <textarea class="form-control" name="opis" [(ngModel)]="model.opis" cols="30" rows="10" placeholder="Opis"></textarea>
-        <input type="text" class="form-control" name="kolicina" [(ngModel)]="model.kolicina" placeholder="Kolicina">
-        <input type="text" class="form-control" name="cijenadeviza" [(ngModel)]="model.cijenadeviza" placeholder="Cijena Deviza">
-        <input type="text" class="form-control" name="cijenakm" [(ngModel)]="model.cijenakm" placeholder="Cijena KM">
-        <input type="text" class="form-control" name="rabat" [(ngModel)]="model.rabat" placeholder="Rabat">
-        <input type="text" class="form-control" name="pdv" [(ngModel)]="model.pdv" placeholder="Pdv">
+    <div class="row mb-3">
+      <label for="opis" class="col-sm-2 col-form-label">Opis</label>
+      <div class="col-sm-10">
+        <textarea name="opis" id="opis" cols="40" [(ngModel)]="model.opis" [ngModelOptions]="{standalone : true}"></textarea>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="kolicina" class="col-sm-2 col-form-label">Kolicina</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="kolicina" [(ngModel)]="model.kolicina" [ngModelOptions]="{standalone : true}">
+      </div>
+    </div>
+    <div class="row mb-3">
+        <label for="cijenadeviza" class="col-sm-2 col-form-label">Cijena Deviza</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="cijenadeviza" [(ngModel)]="model.cijenadeviza" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="cijenakm" class="col-sm-2 col-form-label">Cijena KM</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="cijenakm" [(ngModel)]="model.cijenakm" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="rabat" class="col-sm-2 col-form-label">Rabat %</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="rabat" [(ngModel)]="model.rabat" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="pdv" class="col-sm-2 col-form-label">PDV %</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="pdv" [(ngModel)]="model.pdv" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
         <div class="mb-3">
             <label for="faktura">Fakture</label>
             <select class="form-control" [(ngModel)]="model.brojracuna" [ngModelOptions]="{standalone : true}">
@@ -17,7 +47,5 @@
             </select>
         </div>
     </div>
-    <div class="text-center">
-        <button class="btn btn-success me-2" type="submit">Add</button>
-    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
 </form>

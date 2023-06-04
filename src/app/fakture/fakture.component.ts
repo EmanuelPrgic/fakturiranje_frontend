@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
-import { ZaglavljeRacuna } from '../_models/zaglavljeracuna';
+import { Component, OnInit } from '@angular/core';
+import { FaktureService } from '../_services/fakture.service';
+import { PartnerService } from '../_services/partner.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-fakture',
@@ -9,10 +10,10 @@ import { ZaglavljeRacuna } from '../_models/zaglavljeracuna';
 })
 export class FaktureComponent implements OnInit{
 
-  constructor(private http: HttpClient) {}
+  constructor(private faktureService: FaktureService, private partnerService: PartnerService, private toastr: ToastrService) {}
+
   partners: any;
   fakture: any;
-  editMode = false;
   faktura: any;
 
   ngOnInit(): void {
@@ -21,24 +22,27 @@ export class FaktureComponent implements OnInit{
   }
 
   getPartners() {
-    this.http.get('https://localhost:7003/api/partneri').subscribe({
+      this.partnerService.getPartners().subscribe({
       next: response => this.partners = response,
       error: error => console.log(error)
     })
   }
 
   getFakture() {
-    this.http.get('https://localhost:7003/api/fakture').subscribe({
+    this.faktureService.getFakture().subscribe({
       next: response => this.fakture = response,
       error: error => console.log(error)
     })
   }
 
-  editToggle(brojracuna: number) {
-    this.editMode = !this.editMode;
-    this.http.get('https://localhost:7003/api/fakture/' + brojracuna).subscribe({
-      next: response => this.faktura = response
+  deleteFakturu(id: number)
+  {
+    this.faktureService.deleteFakturu(id).subscribe({
+      next: () =>
+      {
+        this.toastr.success("Success!");
+        this.getFakture();
+      }
     })
   }
-
 }

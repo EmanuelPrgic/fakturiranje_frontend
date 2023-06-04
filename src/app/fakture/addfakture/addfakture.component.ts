@@ -1,26 +1,27 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FaktureService } from 'src/app/_services/fakture.service';
+import { PartnerService } from 'src/app/_services/partner.service';
 
 @Component({
-  selector: 'app-faktura-add',
-  templateUrl: './faktura-add.component.html',
-  styleUrls: ['./faktura-add.component.css']
+  selector: 'app-addfakture',
+  templateUrl: './addfakture.component.html',
+  styleUrls: ['./addfakture.component.css']
 })
-export class FakturaAddComponent implements OnInit{
+export class AddfaktureComponent {
 
   model: any = {};
   partners: any;
 
-  constructor(private faktureService: FaktureService, private toastr: ToastrService, private http: HttpClient) {}
+  constructor(private faktureService: FaktureService, private toastr: ToastrService, private partnerService: PartnerService) {}
 
   ngOnInit(): void {
     this.getPartners();
   }
 
   getPartners() {
-    this.http.get('https://localhost:7003/api/Partneri').subscribe({
+    this.partnerService.getPartners().subscribe({
       next: response => this.partners = response,
       error: error => console.log(error)
     })

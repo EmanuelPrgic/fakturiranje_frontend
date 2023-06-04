@@ -1,10 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { AccountService } from 'src/app/_services/account.service';
-import { StavkeRacuna } from '../_models/stavkeracuna';
-import { ZaglavljeRacuna } from '../_models/zaglavljeracuna';
-import { Partner } from '../_models/partner';
+import { UslugeService } from '../_services/usluge.service';
+import { PartnerService } from '../_services/partner.service';
+import { FaktureService } from '../_services/fakture.service';
 
 @Component({
   selector: 'app-usluge',
@@ -17,9 +15,8 @@ export class UslugeComponent implements OnInit {
   partneri: any;
   fakture: any;
   usluge: any;
-  fakturnavrijednost: number | undefined;
 
-  constructor(private http: HttpClient) {}
+  constructor(private uslugeService: UslugeService, private partnerService: PartnerService, private faktureService: FaktureService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.getPartners();
@@ -28,25 +25,34 @@ export class UslugeComponent implements OnInit {
   }
 
   getPartners() {
-    this.http.get('https://localhost:7003/api/partneri').subscribe({
+      this.partnerService.getPartners().subscribe({
       next: response => this.partneri = response,
       error: error => console.log(error)
     })
   }
 
   getFakture() {
-    this.http.get('https://localhost:7003/api/fakture').subscribe({
+    this.faktureService.getFakture().subscribe({
       next: response => this.fakture = response,
       error: error => console.log(error)
     })
   }
 
   getUsluge() {
-    this.http.get('https://localhost:7003/api/usluge').subscribe({
+    this.uslugeService.getUsluge().subscribe({
       next: response => {
         this.usluge = response;
       },
       error: error => console.log(error)
+    })
+  }
+
+  deleteUsluga(id: number) {
+    this.uslugeService.deleteUsluga(id).subscribe({
+      next: () => {
+        this.toastr.success("Succesfully deleted!");
+        this.getUsluge();
+      }
     })
   }
 }

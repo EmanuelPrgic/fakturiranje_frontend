@@ -1,1 +1,56 @@
-<p>usluga-edit works!</p>
+<button class="btn btn-success" routerLink="../../">Return</button>
+<form #editForm="ngForm" (ngSubmit)="updateUsluga(usluga.id)">
+    <h2 class="text-center text-primary">Edit uslugu: Id-{{usluga.id}}</h2>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <p><strong>Information:</strong> Any unsaved data will be lost!</p>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="opis" class="col-sm-2 col-form-label">Opis</label>
+      <div class="col-sm-10">
+        <textarea name="opis" id="opis" cols="40" [(ngModel)]="usluga.opis" [ngModelOptions]="{standalone : true}"></textarea>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="kolicina" class="col-sm-2 col-form-label">Kolicina</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="kolicina" [(ngModel)]="usluga.kolicina" [ngModelOptions]="{standalone : true}">
+      </div>
+    </div>
+    <div class="row mb-3">
+        <label for="cijenadeviza" class="col-sm-2 col-form-label">Cijena Deviza</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="cijenadeviza" [(ngModel)]="usluga.cijenadeviza" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="cijenakm" class="col-sm-2 col-form-label">Cijena KM</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="cijenakm" [(ngModel)]="usluga.cijenakm" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="rabat" class="col-sm-2 col-form-label">Rabat %</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="rabat" [(ngModel)]="usluga.rabat" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="pdv" class="col-sm-2 col-form-label">PDV %</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="pdv" [(ngModel)]="usluga.pdv" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="mb-3">
+            <label for="faktura">Fakture</label>
+            <select class="form-control" [(ngModel)]="usluga.brojracuna" [ngModelOptions]="{standalone : true}">
+                <option [ngValue]="null" disabled>Choose fakturu</option>
+                <option *ngFor="let faktura of fakture" [ngValue]="faktura.brojracuna">{{faktura.brojracuna}}</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

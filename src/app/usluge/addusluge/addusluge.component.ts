@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FaktureService } from 'src/app/_services/fakture.service';
+import { PartnerService } from 'src/app/_services/partner.service';
 import { UslugeService } from 'src/app/_services/usluge.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class AdduslugeComponent implements OnInit {
   partners: any;
   fakture: any;
 
-  constructor(private uslugeService: UslugeService, private toastr: ToastrService, private http: HttpClient) {}
+  constructor(private uslugeService: UslugeService, private toastr: ToastrService, private partnerService: PartnerService, private faktureService: FaktureService) {}
 
   ngOnInit(): void {
     this.getPartners();
@@ -23,14 +23,14 @@ export class AdduslugeComponent implements OnInit {
   }
 
   getPartners() {
-    this.http.get('https://localhost:7003/api/partneri').subscribe({
+    this.partnerService.getPartners().subscribe({
       next: response => this.partners = response,
       error: error => console.log(error)
     })
   }
 
   getFakture() {
-    this.http.get('https://localhost:7003/api/fakture').subscribe({
+    this.faktureService.getFakture().subscribe({
       next: response => this.fakture = response,
       error: error => console.log(error)
     })

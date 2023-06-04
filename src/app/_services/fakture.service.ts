@@ -13,13 +13,15 @@ export class FaktureService {
   currentFaktura$ = this.currentFakturaSource.asObservable();
 
   constructor(private http: HttpClient, private accountService: AccountService) { }
-
-  getFakture() {
-    return this.http.get<ZaglavljeRacuna[]>(this.baseUrl + 'fakture');
+  
+  getFakture()
+  {
+    return this.http.get<ZaglavljeRacuna[]>(this.baseUrl + "fakture");
   }
 
-  getFakturu(brojracuna: number) {
-    return this.http.get<ZaglavljeRacuna>(this.baseUrl + 'fakture/' + brojracuna, this.accountService.getHttpOptions());
+  getFakturu(id: number)
+  {
+    return this.http.get<ZaglavljeRacuna>(this.baseUrl + "fakture/" + id, this.accountService.getHttpOptions());
   }
 
   addFakturu(model: ZaglavljeRacuna) {
@@ -31,5 +33,15 @@ export class FaktureService {
         }
       })
     );
-}
+  }
+
+  updateFakturu(id: number, zaglavljeracuna: ZaglavljeRacuna)
+  {
+    return this.http.put(this.baseUrl + "fakture/edit/" + id, zaglavljeracuna);
+  }
+
+  deleteFakturu(id: number)
+  {
+    return this.http.delete(this.baseUrl + "fakture/delete/" + id);
+  }
 }

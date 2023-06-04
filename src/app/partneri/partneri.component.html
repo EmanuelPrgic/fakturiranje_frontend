@@ -1,5 +1,5 @@
 <div>
-  <button class="b btn-outline-success" routerLink="../addPartner">Novi partner</button>
+  <button class="b btn-outline-success" routerLink="add">Novi partner</button>
   <div>
     <table class="table">
       <thead class="thead-dark">
@@ -21,7 +21,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let partner of partners">
-          <td><button routerLink="../partner/edit">Edit</button></td>
+          <td><button routerLink="../partneri/edit/{{partner.id}}">Edit</button>
+          <button (click)="deletePartner(partner.id)">Delete</button></td>
           <td>{{partner.naziv}}</td>
           <td>{{partner.adresa}}</td>
           <td>{{partner.mjesto}}</td>
@@ -42,7 +43,14 @@
                   Nije unesena!
               </ng-template>
           </td>
-          <td>{{partner.swift}}</td>
+          <td>
+            <div *ngIf="partner.swift; else elseBlock">
+                {{partner.swift}}  
+            </div>
+            <ng-template #elseBlock>
+                Nije unesena!
+            </ng-template>
+        </td>
           <td>{{partner.tip}}</td>
           <td>{{partner.drzava}}</td>
         </tr>

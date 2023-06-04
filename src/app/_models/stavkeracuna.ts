@@ -1,4 +1,5 @@
 export interface StavkeRacuna {
+    id: number;
     opis: string;
     kolicina: number;
     cijenadeviza: number;

@@ -1,0 +1,69 @@
+<button class="btn btn-success" routerLink="../">Return</button>
+<form #faktureForm="ngForm" (ngSubmit)="addFakturu()" autocomplete="off">
+    <h2 class="text-center text-primary">Add fakturu</h2>
+    <hr>
+    <div class="row mb-3">
+      <label for="brojracuna" class="col-sm-2 col-form-label">Broj Racuna</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="brojracuna" [(ngModel)]="model.brojracuna" [ngModelOptions]="{standalone : true}">
+      </div>
+    </div>
+    <div class="row mb-3">
+        <label for="datumisporuke" class="col-sm-2 col-form-label">Datum Isporuke</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="datumisporuke" [(ngModel)]="model.datumisporuke" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="datumdokumenta" class="col-sm-2 col-form-label">Datum dokumenta</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="datumdokumenta" [(ngModel)]="model.datumdokumenta" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="datumdospijeca" class="col-sm-2 col-form-label">Datum Dospijeca</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="datumdospijeca" [(ngModel)]="model.datumdospijeca" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="opis" class="col-sm-2 col-form-label">Opis</label>
+        <div class="col-sm-10">
+            <textarea name="opis" id="opis" cols="40" [(ngModel)]="model.opis" [ngModelOptions]="{standalone : true}"></textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="mjestoizdavanja" class="col-sm-2 col-form-label">Mjesto Izdavanja</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="mjestoizdavanja" [(ngModel)]="model.mjestoizdavanja" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="datumizdavanja" class="col-sm-2 col-form-label">Datum Izdavanja</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="datumizdavanja" [(ngModel)]="model.datumizdavanja" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="fiskalnibroj" class="col-sm-2 col-form-label">Fiskalni Broj</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="fiskalnibroj" [(ngModel)]="model.fiskalnibroj" [ngModelOptions]="{standalone : true}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="napomena" class="col-sm-2 col-form-label">Napomena</label>
+        <div class="col-sm-10">
+            <textarea name="napomena" id="napomena" cols="40" [(ngModel)]="model.napomena" [ngModelOptions]="{standalone : true}"></textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="mb-3">
+            <label for="faktura">Fakture</label>
+            <select class="form-control" [(ngModel)]="model.partnerid" [ngModelOptions]="{standalone : true}">
+                <option [ngValue]="null" disabled>Choose partner</option>
+                <option *ngFor="let partner of partners" [ngValue]="partner.id">{{partner.naziv}}</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

@@ -1,5 +1,5 @@
 <div>
-    <button class="b btn-outline-success" routerLink="../usluge/add">Nova usluga</button>
+    <button class="b btn-outline-success" routerLink="add">Nova usluga</button>
     <div>
       <table class="table">
         <thead class="thead-dark">
@@ -21,8 +21,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let usluga of usluge">
-            <td><button routerLink="../usluge/edit">Edit</button>
-            <button>Delete</button></td>
+            <td><button routerLink="../usluge/edit/{{usluga.id}}">Edit</button>
+            <button (click)="deleteUsluga(usluga.id)">Delete</button></td>
             <td>{{usluga.opis}}</td>
             <td>{{usluga.kolicina}}</td>
             <td>{{usluga.cijenadeviza}}</td>

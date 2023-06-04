@@ -11,19 +11,18 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { PartneriComponent } from './partneri/partneri.component';
 import { FaktureComponent } from './fakture/fakture.component';
-import { PartnerDetailComponent } from './partner-detail/partner-detail.component';
 import { SharedModule } from './_modules/shared.module';
 import { TestErrorComponent } from './errors/test-error/test-error.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { UslugeComponent } from './usluge/usluge.component';
-import { AddpartnerComponent } from './addpartner/addpartner.component';
 import { PartnerEditComponent } from './partneri/partner-edit/partner-edit.component';
 import { AdduslugeComponent } from './usluge/addusluge/addusluge.component';
 import { UslugaEditComponent } from './usluge/usluga-edit/usluga-edit.component';
 import { FakturaEditComponent } from './fakture/faktura-edit/faktura-edit.component';
-import { FakturaAddComponent } from './fakture/faktura-add/faktura-add.component';
+import { AddpartnerComponent } from './partneri/addpartner/addpartner.component';
+import { AddfaktureComponent } from './fakture/addfakture/addfakture.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { FakturaAddComponent } from './fakture/faktura-add/faktura-add.component
     RegisterComponent,
     PartneriComponent,
     FaktureComponent,
-    PartnerDetailComponent,
     TestErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,
@@ -43,7 +41,7 @@ import { FakturaAddComponent } from './fakture/faktura-add/faktura-add.component
     AdduslugeComponent,
     UslugaEditComponent,
     FakturaEditComponent,
-    FakturaAddComponent
+    AddfaktureComponent
   ],
   imports: [
     BrowserModule,

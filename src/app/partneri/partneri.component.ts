@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { PartnerService } from '../_services/partner.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-partneri',
@@ -9,16 +10,26 @@ import { HttpClient } from '@angular/common/http';
 export class PartneriComponent implements OnInit{
   partners: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private partnerService: PartnerService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.getPartners();
   }
 
   getPartners() {
-    this.http.get('https://localhost:7003/api/Partneri').subscribe({
-      next: response => this.partners = response,
-      error: error => console.log(error)
+    this.partnerService.getPartners().subscribe({
+      next: partner => this.partners = partner
+    })
+  }
+
+  deletePartner(id: number)
+  {
+    this.partnerService.deletePartner(id).subscribe({
+      next: () =>
+      {
+        this.toastr.success("Success!");
+        this.getPartners();
+      }
     })
   }
 

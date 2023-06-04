@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { PartnerService } from '../_services/partner.service';
+import { PartnerService } from 'src/app/_services/partner.service';
 
 @Component({
   selector: 'app-addpartner',

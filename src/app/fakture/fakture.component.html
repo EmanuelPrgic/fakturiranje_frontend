@@ -1,5 +1,5 @@
-<div *ngIf="!editMode">
-    <button class="b btn-outline-success" routerLink="../fakture/add">Nova faktura</button>
+<div>
+    <button class="b btn-outline-success" routerLink="add">Nova faktura</button>
     <div>
       <table class="table">
         <thead class="thead-dark">
@@ -21,8 +21,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let faktura of fakture">
-            <td><button (click)="editToggle(faktura.brojracuna)">Edit</button>
-            <button>Delete</button></td>  
+            <td><button routerLink="../fakture/edit/{{faktura.id}}">Edit</button>
+            <button (click)="deleteFakturu(faktura.id)">Delete</button></td>
             <td>{{faktura.brojracuna}}</td>
             <td>{{faktura.datumisporuke}}</td>
             <td>{{faktura.datumdokumenta}}</td>
@@ -47,8 +47,4 @@
         </tbody>
       </table>
     </div>
-  </div>
-
-  <div *ngIf="editMode">
-    <app-faktura-edit [faktureFromFaktureComponent]="faktura"></app-faktura-edit>
   </div>
